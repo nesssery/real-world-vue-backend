@@ -1,2 +1,2 @@
-Django REST API
+**_Django REST API_**
 Technologies used: Django Rest API, Django Rest Knox, Django Cors Headers, PostgresQL.
