@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'configs.wsgi.application'
 DATABASES = {
    'default': dj_database_url.config(
        # Feel free to alter this value to suit your needs.
-       default='postgresql://postgres:postgres@localhost:5432/real_world_vue',
+       default='postgresql://nesssery:postgres@localhost:5432/real_world_vue',
        conn_max_age=600
    )
 }
