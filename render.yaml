@@ -8,7 +8,7 @@ services:
    name: real-world-vue
    env: python
    buildCommand: "./build.sh"
-   startCommand: "gunicorn real-world-vue.wsgi:application"
+   startCommand: "gunicorn configs.wsgi:application"
    envVars:
      - key: postgres://nesssery:Tm85a0geOxXDE5vOBxird7CxIDVgZW0n@dpg-bvdlr48n4r0bpmh5cffg/real_world_vue
        fromDatabase:
