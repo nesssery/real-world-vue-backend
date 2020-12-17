@@ -1,4 +1,5 @@
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -77,15 +78,12 @@ WSGI_APPLICATION = 'configs.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'real_world_vue',
-        'USER': 'nesssery',
-        'PASSWORD': 'Tm85a0geOxXDE5vOBxird7CxIDVgZW0n',
-        'HOST': 'postgres://nesssery:Tm85a0geOxXDE5vOBxird7CxIDVgZW0n@dpg-bvdlr48n4r0bpmh5cffg/real_world_vue'
-    }
+   'default': dj_database_url.config(
+       # Feel free to alter this value to suit your needs.
+       default='postgresql://postgres:postgres@localhost:5432/real_world_vue',
+       conn_max_age=600
+   )
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
