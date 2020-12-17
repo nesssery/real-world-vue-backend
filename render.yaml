@@ -10,10 +10,10 @@ services:
    buildCommand: "./build.sh"
    startCommand: "gunicorn real-world-vue.wsgi:application"
    envVars:
-     - key: DATABASE_URL
+     - key: postgres://nesssery:Tm85a0geOxXDE5vOBxird7CxIDVgZW0n@dpg-bvdlr48n4r0bpmh5cffg/real_world_vue
        fromDatabase:
          name: real-world-vue
-         property: postgres://nesssery:Tm85a0geOxXDE5vOBxird7CxIDVgZW0n@dpg-bvdlr48n4r0bpmh5cffg/real_world_vue
+         property: connectionString
      - key: SECRET_KEY
        generateValue: true
      - key: WEB_CONCURRENCY
