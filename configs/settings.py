@@ -12,7 +12,7 @@ SECRET_KEY = 'q%2-#%l^iwy(zc(dg1+9xn@ew3fd^e=gr67nlhh7mq9d-8@i8p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['real-world-vue-piem.onrender.com']
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080"
 ]
