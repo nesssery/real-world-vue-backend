@@ -1,0 +1,20 @@
+databases:
+ - name: real-world-vue
+   databaseName: real-world-vue
+   user: nesssery
+
+services:
+ - type: web
+   name: real-world-vue
+   env: python
+   buildCommand: "./build.sh"
+   startCommand: "gunicorn real-world-vue.wsgi:application"
+   envVars:
+     - key: DATABASE_URL
+       fromDatabase:
+         name: real-world-vue
+         property: postgres://nesssery:Tm85a0geOxXDE5vOBxird7CxIDVgZW0n@dpg-bvdlr48n4r0bpmh5cffg/real_world_vue
+     - key: SECRET_KEY
+       generateValue: true
+     - key: WEB_CONCURRENCY
+       value: 4
