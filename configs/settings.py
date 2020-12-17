@@ -79,10 +79,10 @@ WSGI_APPLICATION = 'configs.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'realworldvue',
-        'USER': 'postgres',
-        'PASSWORD': '',
-        'HOST': 'localhost'
+        'NAME': 'real_world_vue',
+        'USER': 'nesssery',
+        'PASSWORD': 'Tm85a0geOxXDE5vOBxird7CxIDVgZW0n',
+        'HOST': 'postgres://nesssery:Tm85a0geOxXDE5vOBxird7CxIDVgZW0n@dpg-bvdlr48n4r0bpmh5cffg/real_world_vue'
     }
 }
 
