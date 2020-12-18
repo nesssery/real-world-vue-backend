@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'q%2-#%l^iwy(zc(dg1+9xn@ew3fd^e=gr67nlhh7mq9d-8@i8p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['real-world-vue-piem.onrender.com', '127.0.0.1']
 CORS_ALLOWED_ORIGINS = [
