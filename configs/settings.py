@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 import dj_database_url
 
@@ -11,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'q%2-#%l^iwy(zc(dg1+9xn@ew3fd^e=gr67nlhh7mq9d-8@i8p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['real-world-vue-piem.onrender.com']
 CORS_ALLOWED_ORIGINS = [
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -78,11 +80,11 @@ WSGI_APPLICATION = 'configs.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-   'default': dj_database_url.config(
-       # Feel free to alter this value to suit your needs.
-       default='postgres://nesssery:Tm85a0geOxXDE5vOBxird7CxIDVgZW0n@oregon-postgres.render.com/real_world_vue',
-       conn_max_age=600
-   )
+    'default': dj_database_url.config(
+        # Feel free to alter this value to suit your needs.
+        default='postgres://nesssery:Tm85a0geOxXDE5vOBxird7CxIDVgZW0n@oregon-postgres.render.com/real_world_vue',
+        conn_max_age=600
+    )
 }
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -117,5 +119,14 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
+STATIC_URL = '/staticfiles/'
 
-STATIC_URL = '/static/'
+# Following settings only make sense on production and may break development environments.
+if not DEBUG:
+    # Tell Django to copy statics to the `staticfiles` directory
+    # in your application directory on Render.
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+    # Turn on WhiteNoise storage backend that takes care of compressing static files
+    # and creating unique names for each version so they can safely be cached forever.
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
