@@ -16,7 +16,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['real-world-vue-gacq.onrender.com', '127.0.0.1']
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8080"
+    "https://real-world-vue-frontend.onrender.com"
 ]
 CORS_ALLOW_METHODS = [
     'DELETE',
